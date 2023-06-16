@@ -11,6 +11,10 @@
   height: 100%;
   display: block; }
 
+.mat-card-interne {
+  max-width: 500px;
+  margin: 2rem auto; }
+
 .wrap-sidebar-nav {
   display: flex;
   height: 100%;
@@ -27,7 +31,8 @@
   .wrap-sidebar-nav .sidebare-page {
     width: 100%;
     background-color: #f3f3f3;
-    padding-left: 250px; }
+    padding-left: 250px;
+    min-height: 100vh; }
     .wrap-sidebar-nav .sidebare-page .toolbar {
       background-color: #fff;
       display: flex;
@@ -56,14 +61,37 @@
   .form-toolbare .mdc-text-field--filled {
     height: 48px !important; }
 
-.sidebare-page .content-page-sidebare {
+::ng-deep .sidebare-page .content-page-sidebare {
   padding: 1rem; }
-  .sidebare-page .content-page-sidebare .mat-mdc-card {
+  ::ng-deep .sidebare-page .content-page-sidebare .mat-mdc-card {
     position: relative;
     width: 100%; }
+  ::ng-deep .sidebare-page .content-page-sidebare .mat-card-interne mat-card-header {
+    box-sizing: border-box; }
+    ::ng-deep .sidebare-page .content-page-sidebare .mat-card-interne mat-card-header .mat-mdc-card-header-text {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%; }
+  ::ng-deep .sidebare-page .content-page-sidebare .mat-card-interne .mat-mdc-card-image {
+    width: 100%;
+    max-width: 150px;
+    margin: auto; }
+  ::ng-deep .sidebare-page .content-page-sidebare .mat-card-interne .drag-here {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    background: #f5f5f5;
+    border: #ddd dashed 2px; }
+  ::ng-deep .sidebare-page .content-page-sidebare .mat-card-interne .mat-mdc-button-base {
+    color: #000;
+    border: 1px #000 solid; }
 
 .bg-white {
   background-color: #ffffff !important; }
+
+.w-100 {
+  width: 100% !important; }
 
 ::ng-deep .nav-menu .mdc-list-item__primary-text {
   color: #000 !important;
