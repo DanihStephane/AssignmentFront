@@ -1,5 +1,13 @@
+:host {
+  display: block;
+  border-radius: 8px;
+  padding: 16px;
+  max-width: 500px;
+  width: 100%;
+  animation: custom-dialog-enter 1s ease;
+}
 .register-form{
-  max-width: 600px;
+  max-width: 500px;
   margin: auto;
   width: 100%;
   padding: 16px 22px 45px;
@@ -26,6 +34,14 @@
   display: flex;
   gap: .5rem;
 }
+
 ::ng-deep .cdk-global-overlay-wrapper{
   display: block;
+}
+::ng-deep .cdk-overlay-pane,
+::ng-deep .cdk-dialog-container{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
