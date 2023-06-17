@@ -6,6 +6,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
+//Drag and drop
 import {NgFor} from '@angular/common';
 import {
   CdkDragDrop,
@@ -16,6 +19,11 @@ import {
   transferArrayItem,
   DragDropModule,
 } from '@angular/cdk/drag-drop';
+import { NewAssignmentComponent } from "../new-assignment/new-assignment.component";
+import { Dialog,  DialogModule } from '@angular/cdk/dialog';
+import {ShowAssignmentComponent} from "../show-assignment/show-assignment.component";
+
+//Modal assignment
 
 
 
@@ -31,19 +39,25 @@ import {
     MatNativeDateModule,
     MatInputModule,
     MatButtonModule,
-    CdkDropListGroup, CdkDropList, NgFor, CdkDrag,DragDropModule
+    //drag and drop
+    CdkDropListGroup, CdkDropList, NgFor, CdkDrag,DragDropModule,
+    //Modal
+    DialogModule,
+    MatIconModule
   ],
 })
 export class HomepageComponent {
   username: string = '';
 
-  constructor(private router: Router) {
+  constructor(private router: Router, public dialog: Dialog) {
 
   }
 
   todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
 
   done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
+
+  delete : string[] = []
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
@@ -56,5 +70,17 @@ export class HomepageComponent {
         event.currentIndex,
       );
     }
+  }
+
+  openNewAssignmentModal(): void {
+    this.dialog.open<string>(NewAssignmentComponent);
+  }
+
+  logout(): void{
+    this.router.navigate(['/login']);
+  }
+
+  openShowAssignmentModal(): void {
+    this.dialog.open<string>(ShowAssignmentComponent);
   }
 }

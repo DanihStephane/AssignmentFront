@@ -1,4 +1,4 @@
-<div class="wrap-sidebar-nav">
+<div cdkDropListGroup class="wrap-sidebar-nav">
   <div class="sidebare">
     <div class="avatar d-flex align-items-start px-4">
       <div class="d-flex align-items-center gap-4">
@@ -6,15 +6,15 @@
           <img src="../../assets/images/avatar.jpg" alt="">
         </div>
         <p class="mb-0">
-          <span class="d-block">User</span>
-          <span class="d-block">Administrateur</span>
+          <span class="d-block">Assignment</span>
+          <span class="d-block">Application Ultra</span>
         </p>
       </div>
     </div>
     <mat-list role="list" class="nav-menu">
-      <mat-list-item role="listitem" class="text-black">
+      <mat-list-item role="listitem" class="text-black" (click)="openNewAssignmentModal()">
         <div class="d-flex align-items-center gap-4">
-          <svg fill="#5c8eff" height="15px" width="15px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+          <svg fill="#5c8eff" height="30px" width="30px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                xmlns:xlink="http://www.w3.org/1999/xlink"
                viewBox="0 0 27.963 27.963" xml:space="preserve">
             <g>
@@ -27,26 +27,69 @@
               </g>
             </g>
           </svg>
-          Item 1
+          New Assignment
         </div>
       </mat-list-item>
-      <mat-list-item role="listitem" class="text-black">
+      <mat-list-item role="listitem" class="text-black" (click)="logout()">
         <div class="d-flex align-items-center gap-4">
-          <svg width="20px" height="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <svg width="37px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
             <path stroke="#5c8eff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M20 12h-9.5m7.5 3l3-3-3-3m-5-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2h5a2 2 0 002-2v-1"/>
           </svg>
-          Item 2
+          Logout
         </div>
       </mat-list-item>
     </mat-list>
+
+
+
+
+
+
+
+    <div style="position: fixed;
+                bottom: 0;">
+      <mat-card class="bg-white p-4">
+        <mat-card-header>
+          <mat-card-title>Corbeille</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="example-container">
+          <div
+            cdkDropList
+            [cdkDropListData]="delete"
+            class="example-list-basket"
+            (cdkDropListDropped)="drop($event)">
+            <mat-card class="bg-white mat-card-interne w-100 example-box" *ngFor="let item of delete" cdkDrag>
+              <mat-card-header class="w-100 mb-4">
+                <mat-card-title class="d-flex gap-4 justify-content-between">
+                  {{item}}
+                  <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                  </svg>
+                </mat-card-title>
+                <mat-card-subtitle>
+                  <div class="avatar d-flex align-items-start ">
+                    <div class="d-flex align-items-center gap-4">
+                      <p class="mb-0">
+                        <span class="d-block text-black">Responsable</span>
+                      </p>
+                    </div>
+                  </div>
+                </mat-card-subtitle>
+              </mat-card-header>
+            </mat-card>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
 
   </div>
   <div class="sidebare-page">
     <div class="toolbar">
       <div class="form-toolbare d-flex gap-4">
         <mat-form-field>
-          <mat-label>Mot de passe</mat-label>
+          <mat-label>Recherche...</mat-label>
           <input matInput type="password">
         </mat-form-field>
 
@@ -73,7 +116,7 @@
 
     </div>
     <div class="content-page-sidebare">
-      <div cdkDropListGroup class="d-flex gap-4 justify-content-between">
+      <div class="d-flex gap-4 justify-content-between">
 
         <mat-card class="bg-white p-4">
           <mat-card-header>
@@ -88,7 +131,13 @@
               (cdkDropListDropped)="drop($event)">
               <mat-card class="bg-white mat-card-interne w-100 example-box" *ngFor="let item of todo" cdkDrag>
                 <mat-card-header class="w-100 mb-4">
-                  <mat-card-title>{{item}}</mat-card-title>
+                  <mat-card-title class="d-flex gap-4 justify-content-between">
+                    {{item}}
+                    <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+                      <path d="M0 0h24v24H0z" fill="none"></path>
+                    </svg>
+                  </mat-card-title>
                   <mat-card-subtitle>
                     <div class="avatar d-flex align-items-start ">
                       <div class="d-flex align-items-center gap-4">
@@ -104,9 +153,9 @@
                   </mat-card-subtitle>
                 </mat-card-header>
 
-                <mat-card-content>
+                <mat-card-content style="cursor: pointer;" (click)="openShowAssignmentModal()">
                   <div class="drag-here">
-                    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                    <img mat-card-image class="img-assignment" src="https://material.angular.io/assets/img/examples/shiba2.jpg"
                          alt="Photo of a Shiba Inu">
                   </div>
                 </mat-card-content>
@@ -130,7 +179,13 @@
               (cdkDropListDropped)="drop($event)">
               <mat-card class="bg-white mat-card-interne w-100 example-box" *ngFor="let item of done" cdkDrag>
                 <mat-card-header class="w-100 mb-4">
-                  <mat-card-title>{{item}}</mat-card-title>
+                  <mat-card-title class="d-flex gap-4 justify-content-between">
+                    {{item}}
+                    <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+                      <path d="M0 0h24v24H0z" fill="none"></path>
+                    </svg>
+                  </mat-card-title>
                   <mat-card-subtitle>
                     <div class="avatar d-flex align-items-start ">
                       <div class="d-flex align-items-center gap-4">
@@ -146,9 +201,9 @@
                   </mat-card-subtitle>
                 </mat-card-header>
 
-                <mat-card-content>
+                <mat-card-content style="cursor: pointer;" (click)="openShowAssignmentModal()">
                   <div class="drag-here">
-                    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                    <img mat-card-image class="img-assignment" src="https://material.angular.io/assets/img/examples/shiba2.jpg"
                          alt="Photo of a Shiba Inu">
                   </div>
                 </mat-card-content>
