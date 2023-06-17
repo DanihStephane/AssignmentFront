@@ -6,6 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @Component({
@@ -26,6 +27,7 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatSelectModule
   ],
 })
 export class NewAssignmentComponent {

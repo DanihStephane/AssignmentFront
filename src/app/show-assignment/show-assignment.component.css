@@ -1,8 +1,8 @@
 .register-form{
-  max-width: 400px;
+  max-width: 600px;
   margin: auto;
   width: 100%;
-  padding: 45px;
+  padding: 16px 22px 45px;
   background: #fff;
 }
 ::ng-deep app-root,
@@ -16,4 +16,16 @@
   align-items: center;
   flex-direction: column;
   background-color: #f3f3f3;
+}
+::ng-deep .btn-default {
+  border: 1px #000000 solid;
+  background-color: #ffffff;
+  color: #000000!important;
+}
+::ng-deep .mdc-button__label{
+  display: flex;
+  gap: .5rem;
+}
+::ng-deep .cdk-global-overlay-wrapper{
+  display: block;
 }
