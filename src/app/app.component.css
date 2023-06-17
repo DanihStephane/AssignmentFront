@@ -152,3 +152,6 @@
   outline: none!important;
   cursor: pointer;
 }
+::ng-deep .cdk-overlay-pane{
+  background-color: #ffffff!important;
+ }
