@@ -10,68 +10,34 @@
 <h1>New Assignment</h1>
 
 <mat-stepper #stepper>
-  <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required." >
-    <form [formGroup]="firstFormGroup">
-      <div class="d-flex flex-column step-form-field w-100">
+  <mat-step [stepControl]="firstFormGroup" errorMessage="Le nom du devoir est obligatoire." >
+    <form [formGroup]="firstFormGroup" class="d-flex flex-column form-field-show w-100">
+        <ng-template matStepLabel>Nom du devoir</ng-template>
         <mat-form-field>
           <mat-label>Titre</mat-label>
-          <input matInput>
+          <input matInput placeholder="Texte" formControlName="firstCtrl"
+                 required>
         </mat-form-field>
-
-        <mat-form-field>
-          <mat-label>Catégories</mat-label>
-          <mat-select>
-            <mat-option value="one">First option</mat-option>
-            <mat-option value="two">Second option</mat-option>
-          </mat-select>
-        </mat-form-field>
-
-
-        <mat-form-field>
-          <mat-label>Responsable</mat-label>
-          <mat-select>
-            <mat-option value="one">First option</mat-option>
-            <mat-option value="two">Second option</mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <div class="d-flex gap-4 py-4" style="position: relative; z-index: 1">
-          <button mat-button class="btn-default gap-4">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18.3785 8.44975L11.4637 15.3647C11.1845 15.6439 10.8289 15.8342 10.4417 15.9117L7.49994 16.5L8.08829 13.5582C8.16572 13.1711 8.35603 12.8155 8.63522 12.5363L15.5501 5.62132M18.3785 8.44975L19.7927 7.03553C20.1832 6.64501 20.1832 6.01184 19.7927 5.62132L18.3785 4.20711C17.988 3.81658 17.3548 3.81658 16.9643 4.20711L15.5501 5.62132M18.3785 8.44975L15.5501 5.62132" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M5 20H19" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Modifier
-          </button>
-          <button mat-button class="btn-default gap-4">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 7H20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M6 7V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V7" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Supprimer
-          </button>
+        <div>
+          <h3>Le nom du devoir est un champs obligatoire</h3>
+          <div class="d-flex gap-4 justify-content-end p-4" style="position: relative; z-index: 0">
+            <button mat-button matStepperNext>Next</button>
+          </div>
         </div>
-
-        <div class="d-flex gap-4 justify-content-end p-4" style="position: relative; z-index: 0">
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </div>
     </form>
   </mat-step>
 
-
-
-  <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required." >
-    <form [formGroup]="secondFormGroup" >
-      <ng-template matStepLabel>Fill out your address</ng-template>
+  <mat-step [stepControl]="secondFormGroup" errorMessage="Le champs Date de rendu est obligatoire." >
+    <form [formGroup]="secondFormGroup" class="d-flex flex-column form-field-show w-100">
+      <ng-template matStepLabel>Date de rendu</ng-template>
       <mat-form-field>
-        <mat-label>Address</mat-label>
-        <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl"
-               required>
+        <mat-label>Date de rendu</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="secondCtrl">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker class="text-black" #picker></mat-datepicker>
       </mat-form-field>
       <div>
-        <h3>Go to a different step to see the error state</h3>
+        <h3>Le champs Date de rendu est obligatoire</h3>
         <div class="d-flex gap-4 justify-content-end">
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext>Next</button>
@@ -80,14 +46,77 @@
     </form>
   </mat-step>
 
+  <mat-step [stepControl]="thirdFormGroup" errorMessage="Le champs Matière est obligatoire." >
+    <form [formGroup]="thirdFormGroup" class="d-flex flex-column form-field-show w-100">
+      <ng-template matStepLabel>Matière</ng-template>
+      <mat-form-field>
+        <mat-label>Matière</mat-label>
+        <mat-select formControlName="thirdCtrl"
+                    required>
+          <mat-option value="one">Web</mat-option>
+          <mat-option value="two">Grails</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <h3>Le champs Matière est obligatoire</h3>
+        <div class="d-flex gap-4 justify-content-end">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </div>
+    </form>
+  </mat-step>
 
+  <mat-step [stepControl]="fourthFormGroup" errorMessage="Le champs Etudiant est obligatoire." >
+    <form [formGroup]="fourthFormGroup" class="d-flex flex-column form-field-show w-100">
+      <ng-template matStepLabel>Etudiant</ng-template>
+      <mat-form-field>
+        <mat-label>Etudiant</mat-label>
+        <mat-select formControlName="fourthCtrl"
+                    required>
+          <mat-option value="one">Eleve 1</mat-option>
+          <mat-option value="two">Eleve 2</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <h3>Le champs Etudiant est obligatoire</h3>
+        <div class="d-flex gap-4 justify-content-end">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </div>
+    </form>
+  </mat-step>
 
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
-    <h3>You are now done.</h3>
+    <h3>Recap .</h3>
+    <div class="d-flex flex-column form-field-show w-100">
+      <mat-form-field>
+        <mat-label>Nom du devoir</mat-label>
+        <input matInput value="Grails" disabled>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Date de rendu</mat-label>
+        <input matInput value="18/062023" disabled>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Matière</mat-label>
+        <input matInput value="Matière 1" disabled>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Etudiant</mat-label>
+        <input matInput value="Eleve 1" disabled>
+      </mat-form-field>
+    </div>
+
     <div class="d-flex gap-4 justify-content-end">
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-button (click)="openSuccessSnackBar()">Enregister</button>
     </div>
   </mat-step>
 </mat-stepper>

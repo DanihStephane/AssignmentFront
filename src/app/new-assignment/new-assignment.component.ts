@@ -7,6 +7,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { SnackbarService } from '../services/snackbar.service';
 
 
 @Component({
@@ -18,6 +21,7 @@ import {MatSelectModule} from '@angular/material/select';
       provide: STEPPER_GLOBAL_OPTIONS,
       useValue: {showError: true},
     },
+    SnackbarService
   ],
   standalone: true,
   imports: [
@@ -27,8 +31,10 @@ import {MatSelectModule} from '@angular/material/select';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatSelectModule
-  ],
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+  ]
 })
 export class NewAssignmentComponent {
   firstFormGroup = this._formBuilder.group({
@@ -37,5 +43,16 @@ export class NewAssignmentComponent {
   secondFormGroup = this._formBuilder.group({
     secondCtrl: ['', Validators.required],
   });
-  constructor(private _formBuilder: FormBuilder,public dialogRef: DialogRef) {}
+  thirdFormGroup = this._formBuilder.group({
+    thirdCtrl: ['', Validators.required],
+  });
+  fourthFormGroup = this._formBuilder.group({
+    fourthCtrl: ['', Validators.required],
+  });
+  constructor(private _formBuilder: FormBuilder,public dialogRef: DialogRef,private snackbarService: SnackbarService) {}
+
+  openSuccessSnackBar() {
+    this.dialogRef.close()
+    this.snackbarService.openSnackBar('Le devoir a été créé avec succes', 'Fermer', 3000);
+  }
 }
