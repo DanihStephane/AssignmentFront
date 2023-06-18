@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {DialogRef} from "@angular/cdk/dialog";
-import {SnackbarService} from "../services/snackbar.service";
+import {SnackbarService} from "../../services/snackbar.service";
 
 @Component({
   providers: [

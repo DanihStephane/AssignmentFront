@@ -18,10 +18,10 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ShowAssignmentComponent } from './show-assignment/show-assignment.component';
-import { ConfirmAssignmentComponent } from './confirm-assignment/confirm-assignment.component';
-import { DeleteAssignmentComponent } from './delete-assignment/delete-assignment.component';
-import { ReturnAssignmentComponent } from './return-assignment/return-assignment.component';
+import { ShowAssignmentComponent } from './assignments/show-assignment/show-assignment.component';
+import { ConfirmAssignmentComponent } from './assignments/confirm-assignment/confirm-assignment.component';
+import { DeleteAssignmentComponent } from './assignments/delete-assignment/delete-assignment.component';
+import { ReturnAssignmentComponent } from './assignments/return-assignment/return-assignment.component';
 
 
 

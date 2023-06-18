@@ -19,14 +19,14 @@ import {
   transferArrayItem,
   DragDropModule,
 } from '@angular/cdk/drag-drop';
-import { NewAssignmentComponent } from "../new-assignment/new-assignment.component";
+import { NewAssignmentComponent } from "../assignments/new-assignment/new-assignment.component";
 import { Dialog,  DialogModule } from '@angular/cdk/dialog';
-import {ShowAssignmentComponent} from "../show-assignment/show-assignment.component";
+import {ShowAssignmentComponent} from "../assignments/show-assignment/show-assignment.component";
 import {SnackbarService} from "../services/snackbar.service";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
-import {ConfirmAssignmentComponent} from "../confirm-assignment/confirm-assignment.component";
-import {ReturnAssignmentComponent} from "../return-assignment/return-assignment.component";
-import {DeleteAssignmentComponent} from "../delete-assignment/delete-assignment.component";
+import {ConfirmAssignmentComponent} from "../assignments/confirm-assignment/confirm-assignment.component";
+import {ReturnAssignmentComponent} from "../assignments/return-assignment/return-assignment.component";
+import {DeleteAssignmentComponent} from "../assignments/delete-assignment/delete-assignment.component";
 
 //Modal assignment
 

@@ -9,7 +9,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
-import { SnackbarService } from '../services/snackbar.service';
+import { SnackbarService } from '../../services/snackbar.service';
 
 
 @Component({
