@@ -104,51 +104,86 @@
     </div>
     <div class="content-page-sidebare">
 
-
-
-
 <!--      //&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
 
-      <div class="d-flex gap-4 justify-content-between">
+      <div class="w-100 h-100">
 
 
-        <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport" #scroller style="margin: auto;">
-          <main class="container">
-            <div class="example-container">
-              <h3>Non rendu</h3>
+        <cdk-virtual-scroll-viewport itemSize="50" class="w-100 h-100  " #scroller style="margin: auto;">
+         <div class="d-flex gap-4 justify-content-between example-viewport w-100 h-100 ">
+          <mat-card class="bg-white p-4">
 
+              <mat-card-header>
+                <mat-card-title>Non Rendue</mat-card-title>
+              </mat-card-header>
+            <mat-card-content class="example-container">
               <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="assignments" [cdkDropListConnectedTo]="[doneList]"
                    class="example-list" (cdkDropListDropped)="drop($event)" >
-                <div class="example-box" *ngFor="let item of assignments" cdkDrag >
-                  <mat-card class="product-card">
+                <div *ngFor="let item of assignments" cdkDrag >
+                  <mat-card class="bg-white mat-card-interne w-100 example-box">
                     <mat-card-header>
-                      <mat-card-subtitle style="color: black">
+                      <mat-card-title class="d-flex gap-4 justify-content-between align-items-center">
                         Devoir : {{item.nom}}
+                        <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                        </svg>
+                      </mat-card-title>
+                      <mat-card-subtitle class="d-flex">
+                        <div class="avatar d-flex align-items-start ">
+                          <div class="d-flex align-items-center gap-1">
+                            <p class="mb-0">
+                              <span class="d-block text-black"> Matière: {{item.matiere.nom}}</span>
+                            </p>
+                            <div class="img" mat-card-avatar>
+                              <img [src]="item.matiere.photoProf" [alt]="item.matiere.nom">
+                            </div>
+
+                          </div>
+                        </div>
+
+
                       </mat-card-subtitle>
-                      <mat-card-subtitle style="color: black">
-                        Matière: {{item.matiere.nom}}
-                      </mat-card-subtitle>
-                      <mat-card-subtitle style="color: black">
-                        Elève: {{item.eleve.nom}}
-                      </mat-card-subtitle>
-                      <mat-card-subtitle style="color: black">
-                        <small>à rendre le: {{item.dateDeRendu }}</small>
-                      </mat-card-subtitle>
-                      <div mat-card-avatar>
-                        <img [src]="item.matiere.photoProf" [alt]="item.matiere.nom" class="avatar">
-                      </div>
                     </mat-card-header>
-                    <mat-card-actions>
+
+                    <mat-card-content>
+                      <mat-card-subtitle style="color: black">
+
+                      </mat-card-subtitle>
+                      <mat-card-subtitle style="color: black">
+
+                      </mat-card-subtitle>
+                      <mat-card-content style="cursor: pointer;">
+                        <div class="drag-here">
+                          <img mat-card-image class="img-assignment" src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                               alt="Photo of a Shiba Inu">
+                        </div>
+                        <div class="cat">
+                          <div class="btn-cat">
+                            <small class="text-black d-block">Elève: {{item.eleve.nom}}</small>
+                            <small class="text-black d-block">à rendre le: {{item.dateDeRendu }}</small>
+                          </div>
+                        </div>
+                      </mat-card-content>
+                    </mat-card-content>
+
+                    <mat-card-actions class="d-flex justify-content-center gap-4">
                       <button mat-button color="primary" (click)="editAssignment(item)"><mat-icon>edit</mat-icon>Modifier</button>
                       <button mat-button color="primary" (click)="viewDetails(item)"><mat-icon>details</mat-icon>Détail</button>
                     </mat-card-actions>
                   </mat-card>
                 </div>
               </div>
-            </div>
 
-            <div class="example-container">
-              <h3>Rendu</h3>
+            </mat-card-content>
+
+          </mat-card>
+          <mat-card class="bg-white p-4">
+            <mat-card-header>
+              <mat-card-title>Rendue</mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content class="example-container">
 
               <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="assignmentsRendu" class="example-list"
                    (cdkDropListDropped)="drop($event)">
@@ -177,18 +212,10 @@
                   </mat-card>
                 </div>
               </div>
-            </div>
-          </main>
+            </mat-card-content>
+          </mat-card>
+         </div>
         </cdk-virtual-scroll-viewport>
-
-
-
-
-
-
-
-
-
 
       </div>
 <!--      //&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
