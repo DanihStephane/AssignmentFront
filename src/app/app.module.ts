@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +23,14 @@ import { ConfirmAssignmentComponent } from './assignments/confirm-assignment/con
 import { DeleteAssignmentComponent } from './assignments/delete-assignment/delete-assignment.component';
 import { ReturnAssignmentComponent } from './assignments/return-assignment/return-assignment.component';
 
+import { ModalComponent } from "./homepage/homepage.component";
+
+//requete
+import { HttpClientModule } from '@angular/common/http';
+
+import { CommonModule } from '@angular/common';
+
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 
 
@@ -34,7 +42,8 @@ import { ReturnAssignmentComponent } from './assignments/return-assignment/retur
     ShowAssignmentComponent,
     ConfirmAssignmentComponent,
     DeleteAssignmentComponent,
-    ReturnAssignmentComponent
+    ReturnAssignmentComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +60,11 @@ import { ReturnAssignmentComponent } from './assignments/return-assignment/retur
     MatNativeDateModule,
     MatCardModule,
     MatListModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule,
+    FormsModule, ReactiveFormsModule,
+    CommonModule,
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
