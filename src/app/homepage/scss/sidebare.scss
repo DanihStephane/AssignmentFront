@@ -40,8 +40,9 @@
       overflow: hidden;
       border-radius: 20px;
       img {
-        width: 100%;
+        width: auto;
         margin: auto;
+        height: 100%;
       }
 
     }
@@ -163,7 +164,7 @@
   box-shadow: none!important;
 }
 .content-page-sidebare .ng-star-inserted{
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.18)!important;
   border-radius: 20px;
 }
 

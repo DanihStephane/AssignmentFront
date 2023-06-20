@@ -29,8 +29,9 @@
     overflow: hidden;
     border-radius: 20px; }
     .mat-card-interne ::ng-deep .drag-here img {
-      width: 100%;
-      margin: auto; }
+      width: auto;
+      margin: auto;
+      height: 100%; }
   .mat-card-interne ::ng-deep .mat-mdc-button-base {
     color: #000;
     border: 1px #000 solid; }
@@ -124,7 +125,7 @@
   box-shadow: none !important; }
 
 .content-page-sidebare .ng-star-inserted {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.18) !important;
   border-radius: 20px; }
 
 .cdk-drag-preview {
